@@ -1,8 +1,8 @@
-using Core.Mail;
-using Core.Users;
+using Training.Core.Mail;
 using Microsoft.Extensions.DependencyInjection;
+using Training.Core.Users;
 
-namespace MSTest;
+namespace MSTest.Users;
 
 [TestClass]
 public class UnitTest1

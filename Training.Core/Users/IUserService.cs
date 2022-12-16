@@ -1,4 +1,4 @@
-namespace Core.Users;
+namespace Training.Core.Users;
 
 public interface IUserService
 {

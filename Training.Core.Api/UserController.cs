@@ -1,7 +1,7 @@
-using Core.Users;
+using Training.Core.Users;
 using Microsoft.AspNetCore.Mvc;
 
-namespace RestAPI;
+namespace Training.Core.Api;
 
 public class UserController : Controller
 {

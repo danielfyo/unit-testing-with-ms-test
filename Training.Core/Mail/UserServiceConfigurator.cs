@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Core.Mail;
+namespace Training.Core.Mail;
 
 public static class MailServiceConfigurator
 {

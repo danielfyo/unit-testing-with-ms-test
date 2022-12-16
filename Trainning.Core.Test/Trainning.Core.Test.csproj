@@ -6,6 +6,8 @@
         <Nullable>enable</Nullable>
 
         <IsPackable>false</IsPackable>
+
+        <RootNamespace>MSTest</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -19,7 +21,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Core\Core.csproj" />
+      <ProjectReference Include="..\Training.Core\Training.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Mail" />
     </ItemGroup>
 
 </Project>

@@ -1,10 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSTest", "MSTest\MSTest.csproj", "{45252CD1-BB0E-4E91-9D51-4F8D32802E92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trainning.Core.Test", "Trainning.Core.Test\Trainning.Core.Test.csproj", "{45252CD1-BB0E-4E91-9D51-4F8D32802E92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{B49E5D03-25C0-44D5-BE0F-47D49ACF8D70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Core", "Training.Core\Training.Core.csproj", "{B49E5D03-25C0-44D5-BE0F-47D49ACF8D70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestAPI", "RestAPI\RestAPI.csproj", "{31F6CA45-8F3C-4639-BDA9-FAE411F3D651}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Core.Api", "Training.Core.Api\Training.Core.Api.csproj", "{31F6CA45-8F3C-4639-BDA9-FAE411F3D651}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation", "1. Presentation", "{299415C9-462D-4F29-AEF2-FAAF54E5B8DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Services", "2. Services", "{C4AFF9BD-B852-47E5-A4BC-834F10C86023}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Application", "3. Application", "{4086BB42-22D8-4823-B274-D6228EE39538}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Domain", "4. Domain", "{952336CD-5BE6-43B3-872E-7D8851B37DB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Infraestructure", "5. Infraestructure", "{27E5A295-E5E1-4598-A841-78401EB9AC76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Test", "6. Test", "{D0F30B82-5040-4938-A4ED-3E5B0AE8E14A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +36,10 @@ Global
 		{31F6CA45-8F3C-4639-BDA9-FAE411F3D651}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31F6CA45-8F3C-4639-BDA9-FAE411F3D651}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31F6CA45-8F3C-4639-BDA9-FAE411F3D651}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{31F6CA45-8F3C-4639-BDA9-FAE411F3D651} = {C4AFF9BD-B852-47E5-A4BC-834F10C86023}
+		{B49E5D03-25C0-44D5-BE0F-47D49ACF8D70} = {4086BB42-22D8-4823-B274-D6228EE39538}
+		{45252CD1-BB0E-4E91-9D51-4F8D32802E92} = {D0F30B82-5040-4938-A4ED-3E5B0AE8E14A}
 	EndGlobalSection
 EndGlobal

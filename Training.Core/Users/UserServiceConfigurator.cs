@@ -1,7 +1,7 @@
-using Core.Mail;
+using Training.Core.Mail;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Core.Users;
+namespace Training.Core.Users;
 
 public static class UserServiceConfigurator
 {

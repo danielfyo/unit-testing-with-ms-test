@@ -1,4 +1,4 @@
-namespace Core.Mail;
+namespace Training.Core.Mail;
 
 public interface IMailSender
 {

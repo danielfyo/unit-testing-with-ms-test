@@ -1,6 +1,6 @@
-using Core.Mail;
+using Training.Core.Mail;
 
-namespace Core.Users;
+namespace Training.Core.Users;
 
 public class UserService : IUserService
 {
