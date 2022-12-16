@@ -1,4 +1,3 @@
-using Training.Core.Mail;
 using Microsoft.Extensions.DependencyInjection;
 using Training.Core.Users;
 
