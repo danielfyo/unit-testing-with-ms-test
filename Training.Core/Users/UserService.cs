@@ -14,7 +14,7 @@ public class UserService : IUserService
         WhatsappHelper.SendMessage(user.PhoneNumber, "Welcome!");
     }
 
-    public IEnumerable<UserDto> GetUsers()
+    public IEnumerable<UserDto> GetUsers(string rol)
     {
         return new List<UserDto>();
     }

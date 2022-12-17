@@ -6,14 +6,26 @@ namespace MSTest.Users;
 [TestClass]
 public class UserServiceTest
 {
-    [TestMethod]
-    public void CreateUser_EmptyParameter_ThrowException()
+    private readonly IUserService _userService;
+    public UserServiceTest()
     {
         var services = new ServiceCollection();
         services.ConfigureUserService();
         var serviceProvider = services.BuildServiceProvider();
         
-        var userService = serviceProvider.GetRequiredService<IUserService>();
-        Assert.ThrowsException<NotImplementedException>(() => userService.CreateUser(new UserDto()));
+        _userService = serviceProvider.GetRequiredService<IUserService>();
+    }
+
+    [TestMethod]
+    public void CreateUser_EmptyParameter_ThrowException()
+    {
+        Assert.ThrowsException<NotImplementedException>(() => _userService.CreateUser(new UserDto()));
+    }
+
+    [TestMethod]
+    public void GetUsers_RolEmpty_ReturnNull()
+    {
+        var response = _userService.GetUsers(string.Empty);
+        Assert.IsNull(response);
     }
 }
