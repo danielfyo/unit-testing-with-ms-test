@@ -11,7 +11,7 @@ namespace SCOM.Infraestructure.Core
     {
         bool Agregar(Producto producto);
         bool Modificar(Producto producto);
-        bool Eliminar(Producto producto);
+        bool Eliminar(int id);
         Producto Consultar(int id);
         IEnumerable<Producto> ConsultarTodos();
     }
