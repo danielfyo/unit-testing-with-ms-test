@@ -41,11 +41,12 @@ public class UserServiceTest
     [TestMethod]
     public void CreateUser_NormalScenario_ShouldCallIMailSenderSendEmailOnce()
     {
-        _userService.CreateUser(new UserDto
+        var user = new UserDto
         {
-             Email =  "fail"
-        });
-        mockMailService.Verify(m=>m.SendEmail(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
+            Email =  "fail"
+        };
+        _userService.CreateUser(user);
+        mockMailService.Verify(m=>m.SendEmail(It.Is<string>(p => p == user.Email), It.IsAny<string>()), Times.Once);
         mockWhatsappService.Verify(m=>m.SendMessage(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
     }
     
