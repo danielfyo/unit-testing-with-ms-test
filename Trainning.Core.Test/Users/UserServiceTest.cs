@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.VisualBasic.CompilerServices;
 using Moq;
 using Training.Core.Mail;
 using Training.Core.Users;
@@ -27,7 +28,6 @@ public class UserServiceTest
             .Setup(mock => mock
                 .SendEmail(It.Is<string>(p => p == "works"), It.IsAny<string>()))
             .Returns(()=> true);
-        
         
         services.AddTransient(_ => mockMailService.Object);
 
@@ -59,5 +59,15 @@ public class UserServiceTest
         });
         mockMailService.Verify(m=>m.SendEmail(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
         mockWhatsappService.Verify(m=>m.SendMessage(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
+    }
+    
+    [TestMethod]
+    public void Test_CreateUser_MailServiceFail_ShouldCallWhatsappHelperSendMessage()
+    {
+        _userService.CreateUser(new UserDto
+        {
+            Email = "fake-email"
+        });
+        mockMailService.Verify(m=> m.SendEmail(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
     }
 }
