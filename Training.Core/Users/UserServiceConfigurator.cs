@@ -1,5 +1,6 @@
 using Training.Core.Mail;
 using Microsoft.Extensions.DependencyInjection;
+using Training.Core.Whatsapp;
 
 namespace Training.Core.Users;
 
@@ -9,5 +10,6 @@ public static class UserServiceConfigurator
     {
         services.AddTransient<IUserService, UserService>();
         services.ConfigureMailService();
+        services.ConfigureWhatsappService();
     }
 }
