@@ -1,3 +1,5 @@
+using System.Reflection;
+using Castle.Core.Resource;
 using Training.Core.Persons;
 
 namespace MSTest;
@@ -33,23 +35,24 @@ public class CustomerTest
     }
     
     [TestMethod]
-    [ExpectedException(typeof(InvalidEmailException))]
     public void IsValidEmail_InvalidEmail_ShouldThrowInvalidEmailException()
     {
         var email = "danielfyo";
-
-        var privateType = new PrivateType(typeof(Customer));
-        var response = (bool)privateType.InvokeStatic("IsValidEmail", email);
-
-        try
-        {
-            var customer = new Customer();
-            customer.SetEmail(email);
-        }
-        catch (InvalidEmailException e)
-        {
-            Assert.AreEqual($"{email} is not a valid input for email", e.Message);
-            throw;
-        }
+        var customer = new Customer();
+        var methodInfo = typeof(Customer).GetMethod("IsValidEmail", BindingFlags.NonPublic | BindingFlags.Instance);
+        object[] parameters = { email };
+        var isValid = methodInfo.Invoke(customer, parameters) as bool?;
+        Assert.IsFalse(isValid);
+    }
+    
+    [TestMethod]
+    public void IsValidEmail_ValidEmail_ShouldReturnTrue()
+    {
+        var email = "danielfyo@hotmail.com";
+        var customer = new Customer();
+        var methodInfo = typeof(Customer).GetMethod("IsValidEmail", BindingFlags.NonPublic | BindingFlags.Instance);
+        object[] parameters = { email };
+        var isValid = methodInfo.Invoke(customer, parameters) as bool?;
+        Assert.IsTrue(isValid);
     }
 }

@@ -7,6 +7,7 @@
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(RunConfiguration)' == 'RestAPI' " />
     <ItemGroup>
       <ProjectReference Include="..\Training.Core\Training.Core.csproj" />
     </ItemGroup>
