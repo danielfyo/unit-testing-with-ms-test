@@ -1,6 +1,6 @@
 using Training.Core;
 
-namespace MSTest.AccessModifiers;
+namespace Training.Calc.Test;
 
 [TestClass]
 public partial class AccessModifiersTest

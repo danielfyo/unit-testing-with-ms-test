@@ -17,6 +17,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Training.Calc\Training.Calc.csproj" />
+      <ProjectReference Include="..\Training.Core\Training.Core.csproj" />
     </ItemGroup>
 
 </Project>
