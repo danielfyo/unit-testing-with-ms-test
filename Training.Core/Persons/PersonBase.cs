@@ -1,4 +1,4 @@
-namespace Training.Core;
+namespace Training.Core.Persons;
 
 internal abstract class PersonBase
 {

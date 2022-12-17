@@ -1,4 +1,5 @@
 using Training.Core;
+using Training.Core.Persons;
 
 namespace MSTest.AccessModifiers;
 
