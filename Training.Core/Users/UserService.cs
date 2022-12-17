@@ -3,7 +3,7 @@ using Training.Core.Whatsapp;
 
 namespace Training.Core.Users;
 
-public class UserService : IUserService
+internal class UserService : IUserService
 {
     private readonly IMailSender _mailService;
     private readonly IWhatsappService _whatsappService;
