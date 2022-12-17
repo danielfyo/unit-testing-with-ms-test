@@ -10,11 +10,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Domain", "4. Domain", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Infraestructura", "5. Infraestructura", "{9FAAC3F9-47E1-4C69-AF9B-0CD1A8D47431}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCom.Application.Core", "SCom.Application.Core\SCom.Application.Core.csproj", "{F8E04D63-8F05-4766-9196-ABD4ECA8FA75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8E04D63-8F05-4766-9196-ABD4ECA8FA75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8E04D63-8F05-4766-9196-ABD4ECA8FA75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8E04D63-8F05-4766-9196-ABD4ECA8FA75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8E04D63-8F05-4766-9196-ABD4ECA8FA75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F8E04D63-8F05-4766-9196-ABD4ECA8FA75} = {4BDE10AB-770B-4FA9-9075-8C165EF7E684}
 	EndGlobalSection
 EndGlobal
