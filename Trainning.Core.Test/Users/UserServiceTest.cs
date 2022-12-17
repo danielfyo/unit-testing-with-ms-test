@@ -4,10 +4,10 @@ using Training.Core.Users;
 namespace MSTest.Users;
 
 [TestClass]
-public class UnitTest1
+public class UserServiceTest
 {
     [TestMethod]
-    public void TestMethod1()
+    public void CreateUser_EmptyParameter_ThrowException()
     {
         var services = new ServiceCollection();
         services.ConfigureUserService();
