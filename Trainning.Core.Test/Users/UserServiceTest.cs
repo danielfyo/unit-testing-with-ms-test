@@ -31,7 +31,7 @@ public class UserServiceTest
         _userService = serviceProvider.GetRequiredService<IUserService>();
         
         _userService.CreateUser(new UserDto());
-        mockMailService.Verify(m=>m.SendEmail(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
+        mockMailService.Verify(m=>m.SendEmail(It.IsAny<string>(), It.IsAny<string>()), Times.Exactly(2));
         mockWhatsappService.Verify(m=>m.SendMessage(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
     }
     
