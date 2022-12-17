@@ -9,10 +9,10 @@ namespace SCOM.Infraestructure.Core
 {
     internal interface ITipoProductoRepository
     {
-        bool AgregarTipoProducto(TipoProducto producto);
-        bool ModificarTipoProducto(TipoProducto producto);
-        bool EliminarTipoProducto(TipoProducto producto);
-        TipoProducto ConsultarTipoProducto(TipoProducto producto);
-        IEnumerable<TipoProducto> ConsultarTipoProductos(TipoProducto producto);
+        bool Agregar(TipoProducto tipoProducto);
+        bool Modificar(TipoProducto tipoProducto);
+        bool Eliminar(TipoProducto tipoProducto);
+        TipoProducto Consultar(int id);
+        IEnumerable<TipoProducto> ConsultarTodos();
     }
 }

@@ -9,10 +9,10 @@ namespace SCOM.Infraestructure.Core
 {
     internal interface IPersonaRepository
     {
-        bool AgregarPersona(Persona persona);
-        bool ModificarPersona(Persona persona);
-        bool EliminarPersona(Persona persona);
-        Persona ConsultarPersona(Persona persona);
-        IEnumerable<Persona> ConsultarPersonas(Persona persona);
+        bool Agregar(Persona persona);
+        bool Modificar(Persona persona);
+        bool Eliminar(Persona persona);
+        Persona Consultar(int id);
+        IEnumerable<Persona> ConsultarTodos();
     }
 }

@@ -9,11 +9,10 @@ namespace SCOM.Infraestructure.Core
 {
     internal interface IUsuarioRepository
     {
-        bool AgregarUsuario(Usuario producto);
-        bool ModificarUsuario(Usuario producto);
-        bool EliminarUsuario(Usuario producto);
-        Usuario ConsultarUsuario(Usuario producto);
-        IEnumerable<Usuario> ConsultarUsuarios(Usuario producto);
-        bool IniciarSesion(string username, string password);
+        bool Agregar(Usuario usuario);
+        bool Modificar(Usuario usuario);
+        bool Eliminar(Usuario usuario);
+        Usuario Consultar(int id);
+        IEnumerable<Usuario> ConsultarTodos();
     }
 }
