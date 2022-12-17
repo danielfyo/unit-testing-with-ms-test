@@ -16,7 +16,7 @@ public class UserService : IUserService
 
     public IEnumerable<UserDto> GetUsers(string rol)
     {
-        return new List<UserDto>();
+        return null;
     }
 }
 

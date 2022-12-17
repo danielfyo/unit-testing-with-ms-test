@@ -3,22 +3,41 @@ namespace Training.Calc.Test;
 [TestClass]
 public class CalculatorTest
 {
+    double operator1 = -1d;
+    double operator2 = 10d;
+
+    [TestInitialize]
+    public void DecreaseNegativesBeforeExecution()
+    {
+        if (operator1 < 0)
+            operator1--;
+    }
+    
+    [TestCleanup]
+    public void IncreaseNegativesBeforeExecution()
+    {
+        if (operator1 < 0)
+            operator1++;
+    }
+
     [TestMethod]
-    public void AddPositiveValues_NegativeValues_()
+    public void AddPositiveValues_NegativeValues_FirstTest()
     {
         var calculator = new Calculator();
 
-        var operator1 = -5d;
-        var operator2 = 10d;
-
         Assert.ThrowsException<InvalidInputValueException>(() => calculator.AddPositiveValues(operator1, operator2));
-        
-        operator1 = 5d;
-        operator2 = -10d;
-
         Assert.ThrowsException<InvalidInputValueException>(() => calculator.AddPositiveValues(operator1, operator2));
     }
     
+    [TestMethod]
+    public void AddPositiveValues_NegativeValues_SecondTest()
+    {
+        var calculator = new Calculator();
+
+        Assert.ThrowsException<InvalidInputValueException>(() => calculator.AddPositiveValues(operator1, operator2));
+        Assert.ThrowsException<InvalidInputValueException>(() => calculator.AddPositiveValues(operator1, operator2));
+    }
+
     [TestMethod]
     public void AddPositiveValues_PositiveValues_ReturnOperator1Plus2()
     {

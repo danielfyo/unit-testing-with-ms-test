@@ -7,6 +7,9 @@ namespace MSTest.Users;
 public class UserServiceTest
 {
     private readonly IUserService _userService;
+    private int startedTest = 0;
+    private int testDone = 0;
+    
     public UserServiceTest()
     {
         var services = new ServiceCollection();
@@ -16,6 +19,12 @@ public class UserServiceTest
         _userService = serviceProvider.GetRequiredService<IUserService>();
     }
 
+    [TestInitialize]
+    public void IncreaseExeNum() => startedTest++;
+    
+    [TestCleanup]
+    public void IncreaseTestExecuted() => testDone++;
+    
     [TestMethod]
     public void CreateUser_EmptyParameter_ThrowException()
     {
@@ -23,7 +32,7 @@ public class UserServiceTest
     }
 
     [TestMethod]
-    public void GetUsers_RolEmpty_ReturnNull()
+    public void GetUsers_RolEmpty_ReturnEmptyList()
     {
         var response = _userService.GetUsers(string.Empty);
         Assert.IsNull(response);
