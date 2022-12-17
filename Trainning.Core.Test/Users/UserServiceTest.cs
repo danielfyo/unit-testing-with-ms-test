@@ -10,51 +10,52 @@ namespace MSTest.Users;
 public class UserServiceTest
 {
     private IUserService _userService;
+    private Mock<IMailSender> mockMailService = new ();
+    Mock<IWhatsappService> mockWhatsappService = new ();
 
-    [TestMethod]
-    public void CreateUser_NormalScenario_ShouldCallIMailSenderSendEmailOnce()
+    public UserServiceTest()
     {
         var services = new ServiceCollection();
         services.AddTransient<IUserService, UserService>();
         
-        Mock<IMailSender> mockMailService = new ();
         mockMailService
-            .Setup(mock => mock.SendEmail(It.IsAny<string>(), It.IsAny<string>()))
+            .Setup(mock => mock
+                .SendEmail(It.Is<string>(p => p == "fail"), It.IsAny<string>()))
             .Returns(()=> false);
+
+        mockMailService
+            .Setup(mock => mock
+                .SendEmail(It.Is<string>(p => p == "works"), It.IsAny<string>()))
+            .Returns(()=> true);
+        
+        
         services.AddTransient(_ => mockMailService.Object);
 
-        Mock<IWhatsappService> mockWhatsappService = new ();
         mockWhatsappService.Setup(mock => mock.SendMessage(It.IsAny<string>(), It.IsAny<string>()));
         services.AddTransient(_ => mockWhatsappService.Object);
             
         var serviceProvider = services.BuildServiceProvider();
         _userService = serviceProvider.GetRequiredService<IUserService>();
-        
-        _userService.CreateUser(new UserDto());
-        mockMailService.Verify(m=>m.SendEmail(It.IsAny<string>(), It.IsAny<string>()), Times.Exactly(2));
+    }
+
+    [TestMethod]
+    public void CreateUser_NormalScenario_ShouldCallIMailSenderSendEmailOnce()
+    {
+        _userService.CreateUser(new UserDto
+        {
+             Email =  "fail"
+        });
+        mockMailService.Verify(m=>m.SendEmail(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
         mockWhatsappService.Verify(m=>m.SendMessage(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
     }
     
     [TestMethod]
     public void CreateUser_MailServiceFail_ShouldCallWhatsappHelperSendMessage()
     {
-        var services = new ServiceCollection();
-        services.AddTransient<IUserService, UserService>();
-        
-        Mock<IMailSender> mockMailService = new ();
-        mockMailService
-            .Setup(mock => mock.SendEmail(It.IsAny<string>(), It.IsAny<string>()))
-            .Returns(()=> true);
-        services.AddTransient(_ => mockMailService.Object);
-
-        Mock<IWhatsappService> mockWhatsappService = new ();
-        mockWhatsappService.Setup(mock => mock.SendMessage(It.IsAny<string>(), It.IsAny<string>()));
-        services.AddTransient(_ => mockWhatsappService.Object);
-            
-        var serviceProvider = services.BuildServiceProvider();
-        _userService = serviceProvider.GetRequiredService<IUserService>();
-        
-        _userService.CreateUser(new UserDto());
+        _userService.CreateUser(new UserDto
+        {
+            Email = "works"
+        });
         mockMailService.Verify(m=>m.SendEmail(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
         mockWhatsappService.Verify(m=>m.SendMessage(It.IsAny<string>(), It.IsAny<string>()), Times.Never);
     }

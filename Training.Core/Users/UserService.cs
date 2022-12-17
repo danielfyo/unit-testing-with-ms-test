@@ -16,9 +16,8 @@ public class UserService : IUserService
 
     public void CreateUser(UserDto user)
     {
-        if(!_mailService.SendEmail("email", "message"))
-            if(!_mailService.SendEmail("email", "message"))
-                _whatsappService.SendMessage(user.PhoneNumber, "Welcome!");
+        if(!_mailService.SendEmail(user.Email, "message"))
+            _whatsappService.SendMessage(user.PhoneNumber, "Welcome!");
     }
 
     public IEnumerable<UserDto> GetUsers(string rol)
