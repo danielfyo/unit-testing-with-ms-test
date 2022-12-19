@@ -23,6 +23,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Training.Core\Training.Core.csproj" />
+      <ProjectReference Include="..\Training.Infrastructure.Core\Training.Infrastructure.Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>

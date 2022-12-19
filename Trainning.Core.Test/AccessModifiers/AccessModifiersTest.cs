@@ -1,10 +1,9 @@
-using Training.Core;
 using Training.Core.Persons;
 
 namespace MSTest.AccessModifiers;
 
 [TestClass]
-public partial class AccessModifiersTest
+public class AccessModifiersTest
 {
     [TestMethod]
     public void AccessModifiers_ProtectedClass_ShouldBeVisibleToLowerLevels()

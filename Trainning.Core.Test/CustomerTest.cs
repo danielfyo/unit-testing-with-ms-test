@@ -1,5 +1,4 @@
 using System.Reflection;
-using Castle.Core.Resource;
 using Training.Core.Persons;
 
 namespace MSTest;
