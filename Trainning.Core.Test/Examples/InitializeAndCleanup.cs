@@ -8,7 +8,7 @@ public class InitializeAndCleanup
     {
     }
     
-    [TestInitialize]
+    [TestCleanup]
     public void ExecutedAfterEachTest()
     {
     }

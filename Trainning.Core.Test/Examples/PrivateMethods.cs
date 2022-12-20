@@ -24,6 +24,9 @@ public class PrivateMethods
     [TestMethod]
     public void PrivateClass_PrivateMethod_Fail()
     {
+        // var privateClass = new FakeClass();
+        // privateClass.PrivateMethod();
+        
         string anyValue = null;
         var customer = new FakeClass();
         var methodInfo = typeof(FakeClass).GetMethod("PrivateMethod", BindingFlags.NonPublic | BindingFlags.Instance);

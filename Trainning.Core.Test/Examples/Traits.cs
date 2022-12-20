@@ -11,7 +11,6 @@ public class Traits
     public void Test1()
     {
     }
-
     
     [TestMethod]
     [TestCategory("Category 2")]
@@ -32,12 +31,12 @@ public class Traits
     }
     
     [TestMethod]
+    [TestCategory("Category 1")]
     [TestCategory("Category 2")]
     [TestProperty("Test Destination", "Deployment")]
     [Owner("Test Owner")]
     [Priority(4)]
     public void Test4()
     {
-        
     }
 }

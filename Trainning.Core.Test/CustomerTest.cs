@@ -47,11 +47,20 @@ public class CustomerTest
     [TestMethod]
     public void IsValidEmail_ValidEmail_ShouldReturnTrue()
     {
-        var email = "danielfyo@hotmail.com";
+        var type = typeof(Customer); //obetener el tipo de la clase qeu contiene el metodo privado
+        var methodInfo = type.GetMethod("IsValidEmail", BindingFlags.NonPublic | BindingFlags.Instance); // obtener info del metodo
+        var isValid = methodInfo?.Invoke(new Customer(),new object[] {"danielfyo@hotmail.com"}) as bool?;
+        Assert.IsTrue(isValid);
+    }
+    
+    [TestMethod]
+    public void IsValidEmail_InvalidEmail_ShouldReturnFalse()
+    {
+        var email = "danielfyo";
         var customer = new Customer();
         var methodInfo = typeof(Customer).GetMethod("IsValidEmail", BindingFlags.NonPublic | BindingFlags.Instance);
         object[] parameters = { email };
         var isValid = methodInfo.Invoke(customer, parameters) as bool?;
-        Assert.IsTrue(isValid);
+        Assert.IsFalse(isValid);
     }
 }

@@ -8,6 +8,7 @@ public class DataDrivenTest
     public TestContext TestContext { get; set; }
 
     [TestMethod]
+    [DataRow("params", 1,2)]
     public void FromFixedData(int param1, int param2)
     {
         var expectedValue = "fake value";
@@ -19,7 +20,7 @@ public class DataDrivenTest
         "Data Source=localhost;Initial Catalog=db-test;Persist Security Info=True;User ID=SA; Password=SecretPassword@0918273456; MultipleActiveResultSets=True",
         "Customer",
         DataAccessMethod.Sequential)]
-    public void FromFixedData()
+    public void FromDatabase()
     {
         var expectedValue = "fake value";
         Assert.AreEqual(expectedValue, new FakeClass().Name);

@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Training.Infrastructure.Core;
 
 namespace MSTest.Examples;
 
@@ -6,14 +7,16 @@ namespace MSTest.Examples;
 public class Ignore
 {
     [TestMethod]
-    [ExcludeFromCodeCoverage]
+    [Ignore]
     public void TestCoverage()
     {
+        new FakeClass().GetHashCode();
     }
     
     [TestMethod]
     [Ignore]
     public void WholeTest()
     {
+        Assert.Fail();
     }
 }
